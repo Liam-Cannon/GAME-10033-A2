@@ -10,15 +10,14 @@ namespace MohawkGame2D
     /// </summary>
     public class Game
     {
-        /// <summary>
-        ///     Setup runs once before the game loop begins.
-        /// </summary>
+        float soulX;
+        float soulY;
         public void Setup()
         {
             Window.ClearBackground(Color.Black);
             Window.SetSize(400, 400);
             Window.SetTitle("Undertale Soul Box");
-            
+
         }
 
         /// <summary>
@@ -27,16 +26,15 @@ namespace MohawkGame2D
         public void Update()
         {
             //Declare variables for position of the circle
+            Window.ClearBackground(Color.Black);
 
-            float soulX;
-            float soulY;
 
             float inputX = 0;
             float inputY = 0;
 
-           // Draw.SetFillColor(Color.Red);
-           // Draw.Circle(200, 200, 25);
-            // Using module 1.4 as a baseline, testing if movement works
+            Draw.SetFillColor(Color.Red);
+            Draw.Circle(soulX, soulY, 25);
+            //Using module 1.4 as a baseline, testing if movement works
             if (Input.IsKeyboardKeyDown(KeyboardKey.W))
             {
                 inputY -= 1;
@@ -57,6 +55,13 @@ namespace MohawkGame2D
             soulX += inputX * 100 * Time.DeltaTime;
             soulY += inputY * 100 * Time.DeltaTime;
 
+            if (Input.IsKeyboardKeyPressed(KeyboardKey.One)) //reorder this and do it a different way.
+            {
+                {
+                    Draw.SetFillColor(Color.Blue);
+                    Draw.Circle(soulX, soulY, 25);
+
+                }
 
 
 
@@ -70,7 +75,9 @@ namespace MohawkGame2D
 
 
 
+
+            }
         }
-    }
 
+    }
 }
