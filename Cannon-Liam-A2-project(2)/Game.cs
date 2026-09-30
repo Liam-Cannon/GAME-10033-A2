@@ -10,7 +10,7 @@ namespace MohawkGame2D
     /// </summary>
     public class Game
     {
-        float soulX;
+        float soulX; //declare the soul positions
         float soulY;
         public void Setup()
         {
@@ -27,14 +27,35 @@ namespace MohawkGame2D
         {
             //Declare variables for position of the circle
             Window.ClearBackground(Color.Black);
-
+            
 
             float inputX = 0;
             float inputY = 0;
 
-            Draw.SetFillColor(Color.Red);
+            //this block of code changes the color of the soul
+            if (Input.IsKeyboardKeyDown(KeyboardKey.One))
+                Draw.SetFillColor(Color.Red);
+            else if (Input.IsKeyboardKeyDown(KeyboardKey.Two))
+                Draw.SetFillColor(Color.Cyan);
+            else if (Input.IsKeyboardKeyDown(KeyboardKey.Three))
+                Draw.SetFillColor(Color.Blue);
+            else if (Input.IsKeyboardKeyDown(KeyboardKey.Four))
+                Draw.SetFillColor(Color.Green);
+            else if (Input.IsKeyboardKeyDown(KeyboardKey.Five))
+                Draw.SetFillColor(Color.Yellow);
+            else if (Input.IsKeyboardKeyDown(KeyboardKey.Six))
+                Draw.SetFillColor(Color.Magenta);
+            else if (Input.IsKeyboardKeyDown(KeyboardKey.Seven))
+                Draw.SetFillColor("#fca600");
+          
+
+
+
+
+        
+            //soul needs to be drawn after the color is set
             Draw.Circle(soulX, soulY, 25);
-            //Using module 1.4 as a baseline, testing if movement works
+            //movement controls,
             if (Input.IsKeyboardKeyDown(KeyboardKey.W))
             {
                 inputY -= 1;
@@ -54,30 +75,26 @@ namespace MohawkGame2D
 
             soulX += inputX * 100 * Time.DeltaTime;
             soulY += inputY * 100 * Time.DeltaTime;
-
-            if (Input.IsKeyboardKeyPressed(KeyboardKey.One)) //reorder this and do it a different way.
+            if (Input.IsKeyboardKeyDown(KeyboardKey.LeftShift))
             {
-                {
-                    Draw.SetFillColor(Color.Blue);
-                    Draw.Circle(soulX, soulY, 25);
-
-                }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                soulX += inputX * 200 * Time.DeltaTime;
+                soulY += inputY * 200 * Time.DeltaTime;
             }
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
         }
 
     }
-}
