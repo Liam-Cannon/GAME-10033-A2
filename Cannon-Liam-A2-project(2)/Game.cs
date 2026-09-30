@@ -75,7 +75,7 @@ namespace MohawkGame2D
 
             soulX += inputX * 100 * Time.DeltaTime;
             soulY += inputY * 100 * Time.DeltaTime;
-            if (Input.IsKeyboardKeyDown(KeyboardKey.LeftShift))
+            if (Input.IsKeyboardKeyDown(KeyboardKey.LeftShift)) //"Sprinting function" just increases how many pixels you move by when shift is held down
             {
                 soulX += inputX * 200 * Time.DeltaTime;
                 soulY += inputY * 200 * Time.DeltaTime;
