@@ -27,7 +27,7 @@ namespace MohawkGame2D
         {
             //Declare variables for position of the circle
             Window.ClearBackground(Color.Black);
-            
+
 
             float inputX = 0;
             float inputY = 0;
@@ -47,12 +47,12 @@ namespace MohawkGame2D
                 Draw.SetFillColor(Color.Magenta);
             else if (Input.IsKeyboardKeyDown(KeyboardKey.Seven))
                 Draw.SetFillColor("#fca600");
-          
 
 
 
 
-        
+
+
             //soul needs to be drawn after the color is set
             Draw.Circle(soulX, soulY, 25);
             //movement controls,
@@ -80,7 +80,7 @@ namespace MohawkGame2D
                 soulX += inputX * 200 * Time.DeltaTime;
                 soulY += inputY * 200 * Time.DeltaTime;
             }
-        
+
 
 
 
@@ -95,6 +95,6 @@ namespace MohawkGame2D
 
 
         }
-        }
-
     }
+
+}
